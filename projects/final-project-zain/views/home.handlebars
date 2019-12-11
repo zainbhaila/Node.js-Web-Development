@@ -1,0 +1,65 @@
+<div class="data">
+  <div class="container">
+    <h1>Viewing All Data</h1>
+    <input id='search' class="bottom2" placeholder='Search names...' onkeyup="changed()" autocomplete="off" />
+  </div>
+  <div class="container" id="inner">
+    {{#each data}}
+    <div id='{{this.name}}' class='card inner_val'>
+      <div class="card-body">
+        <h5 class="card-title">
+          {{this.name}} Resort
+        </h5>
+        <p class="card-text">
+          Rating: {{this.rating}}
+        </p>
+        <p>
+          Location: {{this.location}}
+        </p>
+        <p>
+          Opened in {{this.year_opened}}
+        </p>
+        <p class='bottom'>
+          Features: {{this.features}}
+        </p>
+      </div>
+
+    </div>
+    <br>
+    {{/each}}
+  </div>
+  <div id="all" hidden>
+    <p>
+      No Results Found
+    </p>
+  </div>
+</div>
+<script>
+  function changed() {
+    let val = new RegExp($("#search").val().toLowerCase())
+    let divs = $("#inner").find($(".inner_val"));
+    if ($("#search").val() == "" || !($("#search").val())) {
+      for (i of divs) {
+        i.hidden = false
+      }
+    }
+    else {
+      let count = 0
+      for (i of divs) {
+        if (i.id.toLowerCase().match(val)) {
+          i.hidden = false
+        }
+        else {
+          i.hidden = true
+          count = count + 1
+        }
+      }
+      if (count == divs.length) {
+        $(".data").find($("#all"))[0].hidden = false
+      }
+      else {
+        $(".data").find($("#all"))[0].hidden = true
+      }
+    }
+  }
+</script>

@@ -1,0 +1,10 @@
+<div class="container data">
+  <h1>Viewing All Old Messages</h1>
+  <div class="chatrooms">
+    <ul id="messages">
+      {{#each data}}
+        <li><b>{{this.name}}:  </b>{{this.message}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

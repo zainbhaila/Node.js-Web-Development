@@ -1,0 +1,22 @@
+<div class="data">
+  <h1>Viewing All East Coast Resorts</h1>
+	{{#each data}}
+    <div>
+      <p>
+        {{this.name}} Resort
+      </p>
+      <p>
+        Rating: {{this.rating}}
+      </p>
+      <p>
+        Location: {{this.location}}
+      </p>
+      <p>
+        Opened in {{this.year_opened}}
+      </p>
+      <p class="bottom">
+        Features: {{this.features}}
+      </p>
+    </div>
+  {{/each}}
+</div>

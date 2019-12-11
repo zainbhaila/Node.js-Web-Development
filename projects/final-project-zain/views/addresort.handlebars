@@ -1,0 +1,46 @@
+<div class="container">
+  <form id="forms" class="addingResort" method="POST" action="/addresort">
+    <div class="input_divs">
+      <div class="inner_input">
+        Ski resort name:
+        <input id="name" name="name" type="text" placeholder="Name" autocomplete="off" required>
+      </div>
+      <div class="inner_input">
+        Give a rating out of 5 for the resort:
+        <input id="rating" type="text" name="rating" placeholder="Rating" autocomplete="off" required>
+      </div>
+      <div class="inner_input">
+        Enter the year the resort opened:
+        <input id="year_opened" name="year_opened" type="text" placeholder="Year Opened" autocomplete="off" required>
+      </div>
+      <div class="inner_input">
+        Select the location:
+        <div>
+          <input id="ec" type="radio" name="location" value="East Coast"> East Coast
+          <input id="wc" type="radio" name="location" value="West Coast"> West Coast
+          <input id="eu" type="radio" name="location" value="Europe"> Europe
+          <input id="ot" type="radio" name="location" value="Other" checked> Other
+        </div>
+      </div>
+      <div class="inner_input">
+        Enter features seperated by a comma and space:
+        <input id="features" name="features" type="text" placeholder="Features" autocomplete="off" value="">
+      </div>
+      <button id="sub" class="btn btn-success card-1" type="submit" disabled>Submit Resort</button>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function (){
+  $('input').on('blur keyup', function() {
+      if ($("#name").val() && parseInt($("#year_opened").val()) && parseFloat($("#rating").val())) {
+          $('#sub').prop('disabled', false);
+      } else {
+          $('#sub').prop('disabled', true);
+      }
+  });
+})
+</script>

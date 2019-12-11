@@ -1,0 +1,26 @@
+<div class="container data">
+  <h1>Viewing All Data Sorted Alphabetically</h1>
+  {{#each data}}
+  <div id='{{this.name}}' class='card inner_val'>
+    <div class="card-body">
+      <h5 class="card-title">
+        {{this.name}} Resort
+      </h5>
+      <p class="card-text">
+        Rating: {{this.rating}}
+      </p>
+      <p>
+        Location: {{this.location}}
+      </p>
+      <p>
+        Opened in {{this.year_opened}}
+      </p>
+      <p class='bottom'>
+        Features: {{this.features}}
+      </p>
+    </div>
+
+  </div>
+  <br>
+  {{/each}}
+</div>

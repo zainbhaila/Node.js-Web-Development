@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/public/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/chat.css">
+  <title>Ski Resorts</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<div class="nav" style="margin-bottom: 30px;">
+  <div class="container">
+    <a href="/"><button class="btn btn-primary card-1">Home</button></a>
+    <a href="/alphabetical"><button class="btn btn-primary card-1">Alphabetical</button></a>
+    <a href="/eastcoast"><button class="btn btn-primary card-1">East Coast</button></a>
+    <a href="/oldest"><button class="btn btn-primary card-1">Oldest</button></a>
+    <a href="/rating"><button class="btn btn-primary card-1">Highest Rated</button></a>
+    <a href="/featurecount"><button class="btn btn-primary card-1">Most Features</button></a>
+    <a href="/addresort"><button class="btn btn-primary card-1">Add New</button></a>
+    <a href="/chat"><button class="btn btn-primary card-1">Chat</button></a>
+    <a href="/reviews"><button class="btn btn-primary card-1">Site Reviews</button></a>
+    <a href="/oldmessages"><button class="btn btn-primary card-1">Old Messages</button></a>
+    <a href="/about"><button class="btn btn-primary card-1">About</button></a>
+  </div>
+</div>
+
+<body>
+  {{{body}}}
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+	<script>
+        var socket = io();
+
+        $('#box').submit(function() { //When "post" button is pressed
+          socket.emit('chat message', {message: $('#message').val(), name: $('#name').val()})
+          var message = $('#message').val();
+          var name = $('#name').val()
+          $('#message').val('');
+          $.ajax({
+            type: "POST",
+            url: '/chat',
+            data: {
+              message: message,
+              name: name,
+              timestamp: new Date()
+            },
+            sucess: function(data, status) {
+              console.log(data);
+            }
+          });
+          return false; //Ensures the page does not reload
+        });
+
+        socket.on('chat message', function(msg) {
+          $('#messages').prepend(("<li><b>" + msg.name + ":  </b>" + msg.message + "</li>"));
+        })
+	</script>
+</body>
+
+</html>
