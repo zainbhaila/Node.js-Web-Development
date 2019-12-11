@@ -1,0 +1,96 @@
+<!--
+    Here is a starting point for the project.
+    jQuery and a index.js file have been included for you.
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>50 State Game</title>
+    <style type="text/css">
+        /* Do not worry about doing extensive styling. Please make sure it is
+           obvious where the input bar, start button, running list of states,
+           and timer all are. */
+        .ui-dialog-titlebar-close {
+          display: none;
+        }
+
+        #clock {
+          font-size: 32px;
+          font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--
+    1. Implement the input element.
+        You'll need to answer the the following questions (and probably more):
+        1. What HTML tag inserts an input element?
+        2. How do I continuously check the contents of the input element without
+        the user hitting enter?
+        3. How do I disable the input bar if the game is not in session?
+    -->
+    <button id="start_button" onclick="start()">Start Game</button>
+    <input type="text" id="state_input" value="" onkeyup="changed()" disabled>
+
+    <!--
+    2. Implement the running list of states.
+        1. What HTML will be inserted each time a user enters a correct state?
+        2. How can I make sure the user can see all the states he/she has
+        already entered?
+        3. How will I trigger the network request to get the number of Spanish
+        speakers in a state (on hover)?
+        4. How will I seperate the entered states from missed states when the
+        game is over if the user lost the game?
+    -->
+    <div id="clock">
+
+    </div>
+    <div id="dialog" hidden>
+      <h1>You win!</h1>
+    </div>
+    <div id="dialogL" hidden>
+      <h1 id="score"></h1>
+    </div>
+    <div class="lists" id="list_correct" style="color: green">
+
+    </div>
+    <div class="lists" id="list_incorrect" style="color: red">
+
+    </div>
+
+
+    <!--
+    3. Implement the timer. This is almost all JavaScript.
+    -->
+
+    <!--
+    4. Implement the start button. The start button must activate the input box
+    to allow input start the timer.
+    -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="index.js" type="text/javascript"></script>
+    <script>
+      $(function() {
+        $("#dialog").dialog({
+          autoOpen : false,
+        })
+        $("#dialog").attr("hidden", false)
+      })
+    </script>
+    <script>
+      $(function() {
+        $("#dialogL").dialog({
+          autoOpen : false,
+        })
+        $("#dialogL").attr("hidden", false)
+      })
+    </script>
+</body>
+
+</html>

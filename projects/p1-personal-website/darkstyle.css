@@ -1,0 +1,64 @@
+@media screen and (max-width: 1000px) {
+  #pic {
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #pic {
+    width: 200px;
+  }
+}
+
+body {
+  background-color: black;
+}
+
+.nodec {
+  text-decoration: none;
+}
+
+#head {
+  margin: 10px;
+  font-size: 36px;
+  text-align: center;
+  text-decoration: underline;
+  color: white;
+}
+
+audio {
+  height: 20px;
+}
+
+.space {
+  padding: 10px;
+}
+
+.button {
+  display: inline;
+  background-color: blue;
+  color: white;
+  width: 20%;
+}
+
+.left-btn{
+  margin-left: 20%;
+}
+
+th, td {
+  border: 1px solid white;
+}
+
+table {
+  color: white;
+  border-collapse: collapse;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin: 20px auto 20px;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE=html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <button id="hi">
+      Hello
+    </button>
+    <div id="taco">
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+    <script>
+      $("#hi").on("click", function() {
+        $.get("http://taco-randomizer.herokuapp.com/random/?full-taco=true", function(data){
+          $("#taco").append("<p>"
+            + data.base_layer.recipe +
+          "</p>");
+        });
+      });
+    </script>
+  </body>
+</html>
